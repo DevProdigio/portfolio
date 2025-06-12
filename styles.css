@@ -1,0 +1,956 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Source Code pro', monospace;
+    color: #333;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 17px;
+    background-color: #222121;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+header h3{
+    font-size: 18px;
+    font-weight: 700;
+}
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu ul li {
+    position: relative;
+}
+
+.nav-menu ul li a {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    color: white; /* ajuste conforme sua paleta */
+    text-decoration: none;
+    padding-bottom: 5px;
+    position: relative;
+    display: inline-block;
+}
+
+.nav-menu ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.nav-menu ul li a:hover::after {
+    width: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+.info-user{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.info-user h3{
+    font-size: 18px;
+    text-align: right;
+}
+
+.img-user img{
+    width: 70px;
+    border-radius: 80px;
+}
+
+main{
+    text-align: center;
+    padding-top: 170px;
+    padding-bottom: 300px;
+    color: white;
+    background-image: url('assets/background-main.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 85vh;
+}
+
+main::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.86);
+}
+
+.welcome h1, .main-desc, .button_slide, header{
+    position: relative;
+    z-index: 2;
+}
+
+.button_slide a{
+    text-decoration: none;
+    color: white;
+}
+
+.main-title h1{
+    font-size: 50px;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+.main-title h1::after{
+    content: '';
+    position: absolute;
+    left: -30px;
+    right: -30px;
+    bottom: -13px;
+    height: 5px;
+    background-color: white;
+}
+
+.main-desc{
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.main-desc h3{
+    overflow: hidden;
+    border-right: 0.15em solid #fff;
+    white-space: nowrap;
+    letter-spacing: 0.15em;
+    animation: blink-caret 0.3s step-end infinite;
+}
+
+@keyframes blink-caret{
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #fff;
+    }
+}
+
+
+.button_slide {
+    display: inline-block;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #0271d8;
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+    transition: ease-out 0.4s;
+}
+
+.button_slide a {
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 0px;
+    padding: 18px 36px;
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    display: inline-block;
+}
+
+.slide_right:hover {
+    box-shadow: inset 400px 0 0 0 #fff;
+}
+
+.slide_right:hover a {
+    color: #333;
+    border: 2px solid #fff;
+}
+
+
+
+section{
+    background-color: rgb(12, 12, 12);
+    color: white;
+}
+
+/* Estilos gerais */
+.about-section {
+    padding: 50px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.about {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.text-about, .info-about, .stats-conteiner {
+    opacity: 0;
+    transition: opacity 2s ease, transform 2s ease; 
+}
+
+.text-about{
+    color: white;
+    text-align: center;
+    transform: translateX(-100%);
+}
+
+.text-about h1 {
+    font-size: 56px;
+    margin-bottom: 10px;
+    
+}
+
+.text-about h3 {
+    font-size: 24px;
+}
+
+.text-about h3 span {
+    color: #007BFF; /* Cor destacada para o nome */
+    font-weight: bold;
+}
+
+.info-about {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(100%);
+}
+
+.info-about p{
+    text-align: justify;
+}
+
+.stats-conteiner{
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    transform: translateY(50px);
+}
+
+.visible .text-about,
+.about.visible .info-about,
+.about.visible .stats-conteiner {
+    opacity: 2;
+    transform: translateX(0) translateY(0);
+}
+.stats-info span{
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.stats-info h2{
+    font-weight: 300;
+    font-size: 22px;
+}
+
+.stats-about {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 12px;
+    
+}
+
+.info-item{
+    border-bottom: 1px solid #817f7f;
+    margin-bottom: 14px;
+    margin: 10px;
+    text-align: left;
+}
+
+.stat-item {
+    background-color: #fff;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    flex: 1 1 200px; /* Flexível, mas mínimo de 200px */
+    max-width: 200px;
+}
+
+.stat-item h2 {
+    font-size: 32px;
+    color: #007BFF;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.stat-item p {
+    font-size: 16px;
+    color: #666;
+}
+
+/*seção habilidades*/
+
+.habilidades-section{
+    background-color: #222121;
+}
+
+.title-habilidades{
+    overflow: hidden;
+    text-align: center;
+}
+
+.title-habilidades h1 {
+    font-size: 56px;
+    padding-bottom: 20px;
+    padding-top: 100px;
+    opacity: 0;
+    transform: translateY(-50%);
+    transition: opacity 2s ease, transform 2s ease;
+}
+
+.title-habilidades.visible h1 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.habilidades-conteiner{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 100px;
+    justify-content: center;
+}
+
+.habilidade-box{
+    background-color: #333;
+    color: #007BFF;
+    padding: 20px;
+    border-top-left-radius: 40px;
+    text-align: center;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 4px solid #007BFF;
+    transform: translateY(100%);
+    opacity: 0;
+    animation: slideUp 1.2s ease forwards;
+    
+    transform: translateY(100%);
+    opacity: 0;
+    transition: opacity 1.2s ease, transform 1.2 ease;
+}
+
+.habilidades-section.visible .habilidade-box {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+.habilidade-box i{
+    font-size: 50px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.habilidade-box:hover{
+    transform: scale(1.1) translateY(0);
+}
+
+.title-experiencia{
+    text-align: center;
+}
+
+.title-experiencia h1{
+    font-size: 56px;
+    padding-bottom: 20px;
+    padding-top: 100px;
+}
+
+#experiencia-section {
+    padding: 60px 30px;
+    background-color: #111;
+    color: white;
+}
+  
+.title-experiencia h1 {
+    font-size: 56px;
+    padding-bottom: 70px;
+    padding-top: 50px;
+    text-align: center;
+}
+  
+.experiencia-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    justify-content: center;
+}
+  
+.experiencia-conteiner {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    
+}
+  
+.experiencia-conteiner:hover {
+    transform: translateY(-5px);
+}
+  
+.logo img {
+    width: 250px;
+    height: auto;
+    margin-bottom: 20px;
+}
+  
+.info h3 {
+    font-size: 18px;
+    margin: 5px 0;
+    color: #fff;
+}
+  
+.info h4 {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 5px 0;
+    color: #aaa;
+}
+  
+.info p {
+    font-size: 14px;
+    color: #ccc;
+    margin: 4px 0;
+}
+  
+.info span {
+    font-weight: bold;
+    color: #fff;
+}
+
+#typewriter-text {
+    display: inline-block;
+    white-space: pre;
+    min-width: 0;
+}
+
+#contato-section {
+    padding: 40px 0;
+    background: #111;
+    color: #fff;
+}
+.title-contato h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+.contato-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.contato-info {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 1.1rem;
+}
+.contato-info i {
+    margin-right: 10px;
+    color: #00dfc4;
+}
+.contato-info a {
+    color: #00dfc4;
+    text-decoration: none;
+}
+.contato-form {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.contato-form input,
+.contato-form textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    background: #222;
+    color: #fff;
+    resize: none;
+}
+.contato-form textarea {
+    min-height: 100px;
+}
+.contato-form button {
+    align-self: flex-start;
+    background: linear-gradient(90deg, #00dfc4 0%, #007BFF 100%);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 32px;
+    font-size: 1.1rem;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+
+.contato-form button:hover {
+    background: linear-gradient(90deg, #007BFF 0%, #00dfc4 100%);
+    color: #222;
+    transform: translateY(-2px) scale(1.04);
+}
+
+
+/* Media Queries para Responsividade Mobile */
+
+/* Tablet - até 768px */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 15px;
+    }
+    
+    .nav-menu ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-menu ul li {
+        font-size: 14px;
+    }
+    
+    .info-user {
+        gap: 15px;
+    }
+    
+    .info-user h3 {
+        font-size: 16px;
+    }
+    
+    .img-user img {
+        width: 50px;
+    }
+    
+    main {
+        padding-top: 100px;
+        padding-bottom: 150px;
+        height: auto;
+        min-height: 60vh;
+    }
+    
+    .main-title h1 {
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+    
+    .main-desc {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+    
+    .text-about h1 {
+        font-size: 42px;
+    }
+    
+    .text-about h3 {
+        font-size: 20px;
+    }
+    
+    .info-about {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+    
+    .stats-conteiner {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+    }
+    
+    .stats-about {
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .stat-item {
+        flex: 1 1 150px;
+        max-width: 150px;
+        margin: 5px;
+    }
+    
+    .title-habilidades h1,
+    .title-experiencia h1,
+    .title-contato h1 {
+        font-size: 42px;
+        padding-top: 60px;
+        padding-bottom: 30px;
+    }
+    
+    .habilidades-conteiner {
+        gap: 30px;
+        padding: 60px 20px;
+    }
+    
+    .habilidade-box {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .habilidade-box i {
+        font-size: 40px;
+    }
+    
+    .experiencia-grid {
+        gap: 40px;
+        padding: 0 20px;
+    }
+    
+    .experiencia-conteiner {
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    .contato-container {
+        flex-direction: column;
+        gap: 30px;
+        padding: 0 20px;
+    }
+}
+
+/* Mobile - até 480px */
+@media (max-width: 480px) {
+    header {
+        padding: 10px;
+    }
+    
+    header h3 {
+        font-size: 16px;
+    }
+    
+    .nav-menu ul {
+        gap: 10px;
+        font-size: 12px;
+    }
+    
+    .nav-menu ul li {
+        font-size: 12px;
+        padding: 5px;
+    }
+    
+    .info-user {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .info-user h3 {
+        font-size: 14px;
+    }
+    
+    .img-user img {
+        width: 45px;
+    }
+    
+    main {
+        padding-top: 60px;
+        padding-bottom: 100px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .main-title h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    
+    .main-title h1::after {
+        left: -15px;
+        right: -15px;
+        height: 3px;
+    }
+    
+    .main-desc {
+        font-size: 12px;
+        margin-bottom: 25px;
+    }
+    
+    .button_slide {
+        margin: 5px;
+        font-size: 12px;
+    }
+    
+    .button_slide a {
+        padding: 12px 24px;
+        font-size: 12px;
+    }
+    
+    .about {
+        padding: 40px 15px;
+    }
+    
+    .text-about h1 {
+        font-size: 32px;
+    }
+    
+    .text-about h3 {
+        font-size: 18px;
+    }
+    
+    .info-about {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+    
+    .stats-conteiner {
+        margin-top: 30px;
+    }
+    
+    .stats-about {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .stat-item {
+        width: 100%;
+        max-width: 200px;
+        margin: 5px 0;
+    }
+    
+    .stat-item h2 {
+        font-size: 28px;
+    }
+    
+    .stats-info {
+        margin-top: 20px;
+        width: 100%;
+    }
+    
+    .stats-info h2 {
+        font-size: 16px;
+    }
+    
+    .stats-info span {
+        font-size: 16px;
+    }
+    
+    .title-habilidades h1,
+    .title-experiencia h1,
+    .title-contato h1 {
+        font-size: 32px;
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
+    
+    .habilidades-conteiner {
+        gap: 20px;
+        padding: 40px 15px;
+        justify-content: center;
+    }
+    
+    .habilidade-box {
+        width: 100px;
+        height: 100px;
+        margin: 5px;
+    }
+    
+    .habilidade-box h3 {
+        font-size: 12px;
+    }
+    
+    .habilidade-box i {
+        font-size: 30px;
+        margin-bottom: 5px;
+    }
+    
+    #experiencia-section {
+        padding: 30px 15px;
+    }
+    
+    .experiencia-grid {
+        gap: 25px;
+    }
+    
+    .experiencia-conteiner {
+        width: 100%;
+        max-width: 280px;
+        padding: 15px;
+    }
+    
+    .logo img {
+        width: 200px;
+        margin-bottom: 15px;
+    }
+    
+    .info h3 {
+        font-size: 16px;
+    }
+    
+    .info h4 {
+        font-size: 14px;
+    }
+    
+    .info p {
+        font-size: 12px;
+    }
+    
+    #contato-section {
+        padding: 30px 15px;
+    }
+    
+    .title-contato h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    
+    .contato-container {
+        gap: 20px;
+    }
+    
+    .contato-info {
+        font-size: 14px;
+        text-align: center;
+    }
+    
+    .contato-form input,
+    .contato-form textarea {
+        font-size: 14px;
+        padding: 12px;
+    }
+    
+    .contato-form button {
+        font-size: 14px;
+        padding: 12px 24px;
+        align-self: center;
+    }
+}
+
+/* Mobile muito pequeno - até 320px */
+@media (max-width: 320px) {
+    .main-title h1 {
+        font-size: 24px;
+    }
+    
+    .text-about h1 {
+        font-size: 28px;
+    }
+    
+    .title-habilidades h1,
+    .title-experiencia h1,
+    .title-contato h1 {
+        font-size: 28px;
+    }
+    
+    .habilidades-conteiner {
+        padding: 30px 10px;
+    }
+    
+    .habilidade-box {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .habilidade-box h3 {
+        font-size: 11px;
+    }
+    
+    .habilidade-box i {
+        font-size: 25px;
+    }
+    
+    .experiencia-conteiner {
+        max-width: 260px;
+    }
+    
+    .logo img {
+        width: 180px;
+    }
+    
+    .button_slide a {
+        padding: 10px 20px;
+        font-size: 11px;
+    }
+}
+
+/* Orientação landscape para mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    main {
+        padding-top: 40px;
+        padding-bottom: 60px;
+        min-height: 50vh;
+    }
+    
+    .main-title h1 {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+    
+    .main-desc {
+        margin-bottom: 20px;
+    }
+    
+    .about {
+        padding: 30px 20px;
+    }
+    
+    .title-habilidades h1,
+    .title-experiencia h1,
+    .title-contato h1 {
+        padding-top: 30px;
+        padding-bottom: 20px;
+    }
+    
+    .habilidades-conteiner {
+        padding: 40px 20px;
+    }
+}
